@@ -2,11 +2,11 @@ language: node_js
 node_js: node
 cache:
   directories:
-  - node_modules
+    - node_modules
 deploy:
   provider: heroku
   api_key:
     secure: syHLS/+WTH5lHB3RZObBqkfTvgMbx34iQJ1kBychAHrjFxM9GvitVyHnJv4Ayget48hl0bB4FDY+E4DeZB9d1uDk1iz8hZsM5CSbZfhZIlnRfRKqKb5rkpMRvM9KiM/y2+IbKFcGFdPJTRW7/I6lS1bJ1mj3v547+YRg/mRuJt8mqKd3/3GrlIOoYa0qvpykHTzH8IehQrSPOxohulOSmQDdNd4Jsq7BKtU6FridlENYCfmChF8+hmPH259RN/I+u/+4Wizo9OV42JxrxUgYVPrlHp4+lhTPsfas/8c8vcxhnokbWlqLqxblZ4biyw2aOyGSNoTu/PHJL0L8SfP3haGfoNdTlpIHxb/X9mAJfWydXVRtEuB6BcQ9DE7cQLGh/O/2ZTL3XlhcLOHDSA/TidV9rWr0imYclp7LNuq30Ozw12IafaeVx/TTpy0JYf8qRXgCiAwztIcr6QNDFTlZitGgcbcIBcHaMWYxRQfwJpX8eNGZM30qyIp1ettFOlZobRLQv9pzOpT/kjulsRs13pAcV/zqFHu1DwuRte3oSo8ze079paYFlxoQihXX8CaW7WEME83yQRk3Mhd+zslEf+CJer63LzrH5t3qpQybVm0gAZJJTh8azLv9mepRhFPcmGYIjfk8mT66hW5l3vZMFkKz+8+yUxamP8pIThZIfXM=
-  app: local-indie-client
+  app: warm-reaches-95586
   on:
     repo: namninja/local-indie-client
