@@ -1,0 +1,8 @@
+.home {
+  background: url("../images/icon-above-font.png") no-repeat center center;
+  min-height: 100vh;
+}
+
+body {
+  background-color: #1AB5E6;
+}
