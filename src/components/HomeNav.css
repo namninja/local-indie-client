@@ -11,14 +11,15 @@
   align-items: center;
   justify-content: center;
   flex-direction: row;
+  margin-top: 10px;
 }
 
 .search {
-  margin-left: 7px;
+  margin-left: 10px;
 }
 
 .auth {
-  margin-right: 7px;
+  margin-right: 10px;
 }
 
 .home-links {
