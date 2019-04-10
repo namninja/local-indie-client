@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import "./App.css";
 import HomeNav from "./components/HomeNav";
+import About from "./components/About";
 import FindShows from "./components/FindShows";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
@@ -17,13 +18,14 @@ class App extends Component {
     return (
       <Router>
         <HomeNav />
-
-        <Route exact path="/find-shows" component={FindShows} />
-        <Route exact path="/browse-artists" component={BrowseArtists} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/signup" component={Signup} />
-
-        <main className="home" />
+        <main>
+          <Route exact path="/find-shows" component={FindShows} />
+          <Route exact path="/browse-artists" component={BrowseArtists} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={Signup} />
+          <section className="home" />
+          <About />
+        </main>
       </Router>
     );
   }
