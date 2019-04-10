@@ -10,5 +10,12 @@ font author site: http://sansoxygen.com/
 icon designer: Berkah Icon
 icon designer link: /berkahicon
         
-{"bg":"#1AB5E6","icon":"#EBC246","font":"#ffffff"}
+{"bg":"#DEE5F3","icon-gradient-0":"#288B58","icon-gradient-1":"#1522F1","font":"#0C203C"}
+
+<link href="https://fonts.googleapis.com/css?family=Corben|EB+Garamond|Montserrat|Roboto" rel="stylesheet">
+
+font-family: 'EB Garamond', serif;
+font-family: 'Corben', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Roboto', sans-serif;
       
