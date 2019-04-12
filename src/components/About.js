@@ -1,11 +1,11 @@
 import React from "react";
 import "./About.css";
-
+import Footer from "./Footer";
 const About = () => {
   return (
     <div className="about">
       <section className="statement">
-        <h1>Find and Share Local Independent Music</h1>
+        <h2 className="descript">Find and Share Local Independent Music</h2>
         <p>
           This site was created to support local independent musicians and
           connect them with music lovers. Bands, solo acts, or DJ's can join and
@@ -15,13 +15,15 @@ const About = () => {
       </section>
       <section className="about-details">
         <article>
-          <h3>Are you an artist?</h3>
+          <i class="fas fa-guitar" />
+          <h3> Are you an artist?</h3>
           <p>
             Create a profile and get discovered. Share your songs, post upcoming
             shows connect with fans.
           </p>
         </article>
         <article>
+          <i class="fas fa-music" />
           <h3>Looking for Live Music?</h3>
           <p>
             Browse all the shows going on in your city. Discover and support
@@ -29,6 +31,7 @@ const About = () => {
           </p>
         </article>
         <article>
+          <i class="fas fa-compact-disc" />
           <h3>Are you a Promoter?</h3>
           <p>
             Create a profile and post events for your venue. Browse local
@@ -36,6 +39,7 @@ const About = () => {
           </p>
         </article>
       </section>
+      <Footer />
     </div>
   );
 };

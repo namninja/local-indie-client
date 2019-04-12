@@ -11,8 +11,8 @@
 .statement {
   padding: 20px;
   max-width: 85%;
-  font-size: 18px;
-  line-height: 1.6;
+  font-size: 15px;
+  line-height: 1.9;
 }
 
 .about-details {
@@ -31,5 +31,53 @@
   text-align: center;
   padding: 20px;
   flex: 0 1 375px;
-  line-height: 1.6;
+  line-height: 1.8;
+}
+
+.fa-guitar, .fa-music, .fa-compact-disc {
+  font-size: 40px;
+  background: -webkit-linear-gradient(#288B58, #1522F1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media only screen and (min-width: 600px) {
+  .about {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .statement {
+    padding: 20px;
+    max-width: 72%;
+    font-size: 18px;
+    line-height: 1.9;
+  }
+  .about-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .about-details>article {
+    display: flex;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    flex: 0 1 375px;
+    line-height: 1.8;
+  }
+  .fa-guitar, .fa-music, .fa-compact-disc {
+    font-size: 40px;
+    background: -webkit-linear-gradient(#288B58, #1522F1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }

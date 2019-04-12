@@ -6,8 +6,11 @@ import {
   Switch
 } from "react-router-dom";
 import "./App.css";
+
 import HomeNav from "./components/HomeNav";
 import About from "./components/About";
+import Landing from "./components/Landing";
+
 import FindShows from "./components/FindShows";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
@@ -23,7 +26,7 @@ class App extends Component {
           <Route exact path="/browse-artists" component={BrowseArtists} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
-          <section className="home" />
+          <Landing />
           <About />
         </main>
       </Router>
