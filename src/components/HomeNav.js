@@ -13,14 +13,34 @@ function HomeNav(props) {
           Browse Artists
         </Link>
       </div>
-      <div className="auth">
-        <Link to="/login" className="home-links btn">
-          Log In
-        </Link>
-        <Link to="/signup" className="home-links btn">
-          Sign Up
-        </Link>
-      </div>
+      {props.loggedIn ? (
+        <a
+          href="#"
+          onClick={e => {
+            e.preventDefault();
+            props.logout();
+          }}
+        >
+          Logout
+        </a>
+      ) : (
+        <div className="auth">
+          <Link
+            to="/login"
+            className="home-links btn"
+            onClick={e => {
+              e.preventDefault();
+              props.login();
+            }}
+          >
+            Log In
+          </Link>
+
+          <Link to="/signup" className="home-links btn">
+            Sign Up
+          </Link>
+        </div>
+      )}
     </header>
   );
 }
