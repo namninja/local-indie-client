@@ -9,4 +9,5 @@ body {
 main {
   height: 100vh;
   background-color: #DEE5F3;
+  min-height: 675px;
 }

@@ -8,6 +8,11 @@ function HomeNav(props) {
       <Link to="/" className="logo">
         local indie
       </Link>
+      <input className="menu-btn" type="checkbox" id="menu-btn" />
+      <label className="menu-icon" for="menu-btn">
+        <span class="navicon" />
+      </label>
+
       {props.loggedIn ? (
         <a
           href="#"
@@ -19,7 +24,7 @@ function HomeNav(props) {
           Logout
         </a>
       ) : (
-        <nav className="nav">
+        <nav className="menu">
           <Link to="/find-shows" className="home-links btn">
             Find a show
           </Link>
@@ -35,6 +40,9 @@ function HomeNav(props) {
             }}
           >
             Log In
+          </Link>
+          <Link to="/signup" className="home-links btn">
+            Sign Up
           </Link>
         </nav>
       )}

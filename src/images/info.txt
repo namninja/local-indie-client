@@ -2,8 +2,8 @@
 Hope you enjoy your new logo, here are the people that
 made your beautiful logo happen :)
 
-font name: Corben-Bold
-font link: https://fonts.google.com/specimen/Corben
+font name: Michroma
+font link: https://fonts.google.com/specimen/Michroma
 font author: Vernon Adams
 font author site: http://sansoxygen.com/
 
@@ -11,6 +11,8 @@ icon designer: Berkah Icon
 icon designer link: /berkahicon
         
 {"bg":"#DEE5F3","icon-gradient-0":"#288B58","icon-gradient-1":"#1522F1","font":"#0C203C"}
+      
+      
 
 <link href="https://fonts.googleapis.com/css?family=Corben|EB+Garamond|Montserrat|Roboto" rel="stylesheet">
 

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Landing.css";
 import About from "./About";
+
 const Landing = () => {
   return (
     <div>
@@ -12,9 +13,9 @@ const Landing = () => {
           <div className="noot-3">&#9839; &#9834;</div>
           <div className="noot-4">&#9834;</div>
         </div>
-        <Link to="/signup" className="home-links btn">
-          Sign Up
-        </Link>
+        <div class="arrow bounce">
+          <i class="fa fa-angle-down fa-2x" aria-hidden="true" />
+        </div>
       </div>
       <About />
     </div>

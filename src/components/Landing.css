@@ -2,10 +2,10 @@
   background-image: url("../images/icon.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: scroll;
+  background-attachment: fixed;
   background-size: contain;
-  margin-top: -50px;
-  height: 50vh;
+  margin-top: 5px;
+  height: 100vh;
   padding-top: 222px;
 }
 
@@ -29,30 +29,39 @@
   -webkit-text-fill-color: transparent;
 }
 
-@media only screen and (min-width: 600px) {
+.fa-angle-down {
+  visibility: hidden;
+}
+
+@media only screen and (min-width: 680px) {
   .home {
     background-image: url("../images/icon.png");
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: scroll;
-    background-size: 30%;
+    background-size: 25%;
     margin-top: -50px;
     height: 100vh;
-    padding-top: 100px;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .muzieknootjes {
     display: block;
     margin: auto;
     position: relative;
     width: 50%;
-    min-width: 300px;
-    height: 200px;
+    width: 350px;
+    height: 390px;
     border: 0px solid #000;
   }
   .noot-1, .noot-2, .noot-3, .noot-4 {
     position: absolute;
     animation: notes 2s infinite linear;
-    font-size: 40px;
+    font-size: 50px;
     opacity: 0;
     background: -webkit-linear-gradient(#288B58, #1522F1);
     -webkit-background-clip: text;
@@ -95,5 +104,74 @@
       transform: scale(1.5) translate(100%, -100%);
       opacity: 0;
     }
+  }
+  @-moz-keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      -moz-transform: translateY(0);
+      transform: translateY(0);
+    }
+    40% {
+      -moz-transform: translateY(-30px);
+      transform: translateY(-30px);
+    }
+    60% {
+      -moz-transform: translateY(-15px);
+      transform: translateY(-15px);
+    }
+  }
+  @-webkit-keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+    40% {
+      -webkit-transform: translateY(-30px);
+      transform: translateY(-30px);
+    }
+    60% {
+      -webkit-transform: translateY(-15px);
+      transform: translateY(-15px);
+    }
+  }
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      -moz-transform: translateY(0);
+      -ms-transform: translateY(0);
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+    40% {
+      -moz-transform: translateY(-10px);
+      -ms-transform: translateY(-10px);
+      -webkit-transform: translateY(-10px);
+      transform: translateY(-10px);
+    }
+    60% {
+      -moz-transform: translateY(-5px);
+      -ms-transform: translateY(-5px);
+      -webkit-transform: translateY(-5px);
+      transform: translateY(-5px);
+    }
+  }
+  .fa-angle-down {
+    display: block;
+    color: rgba(21, 36, 241, 0.452);
+    visibility: visible;
+  }
+  .arrow {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -30px;
+    width: 40px;
+    height: 30px;
+    /*change with size of arrow to make sit on bottom */
+    /*   background-image: url(); */
+    /*   background-size: contain; */
+  }
+  .bounce {
+    -moz-animation: bounce 3s infinite;
+    -webkit-animation: bounce 3s infinite;
+    animation: bounce 3s infinite;
   }
 }
