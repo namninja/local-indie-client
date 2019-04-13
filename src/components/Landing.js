@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Landing.css";
 import About from "./About";
 const Landing = () => {
@@ -11,6 +12,9 @@ const Landing = () => {
           <div className="noot-3">&#9839; &#9834;</div>
           <div className="noot-4">&#9834;</div>
         </div>
+        <Link to="/signup" className="home-links btn">
+          Sign Up
+        </Link>
       </div>
       <About />
     </div>

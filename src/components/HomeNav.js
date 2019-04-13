@@ -5,14 +5,9 @@ import { Link } from "react-router-dom";
 function HomeNav(props) {
   return (
     <header role="banner" className="header">
-      <div className="search">
-        <Link to="/find-shows" className="home-links btn">
-          Find a show
-        </Link>
-        <Link to="/browse-artists" className="home-links btn">
-          Browse Artists
-        </Link>
-      </div>
+      <Link to="/" className="logo">
+        local indie
+      </Link>
       {props.loggedIn ? (
         <a
           href="#"
@@ -24,7 +19,13 @@ function HomeNav(props) {
           Logout
         </a>
       ) : (
-        <div className="auth">
+        <nav className="nav">
+          <Link to="/find-shows" className="home-links btn">
+            Find a show
+          </Link>
+          <Link to="/browse-artists" className="home-links btn">
+            Browse Artists
+          </Link>
           <Link
             to="/login"
             className="home-links btn"
@@ -35,11 +36,7 @@ function HomeNav(props) {
           >
             Log In
           </Link>
-
-          <Link to="/signup" className="home-links btn">
-            Sign Up
-          </Link>
-        </div>
+        </nav>
       )}
     </header>
   );

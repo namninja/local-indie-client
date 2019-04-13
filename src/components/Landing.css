@@ -1,5 +1,5 @@
 .home {
-  background-image: url("../images/icon-above-font.png");
+  background-image: url("../images/icon.png");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -31,14 +31,14 @@
 
 @media only screen and (min-width: 600px) {
   .home {
-    background-image: url("../images/icon-above-font.png");
+    background-image: url("../images/icon.png");
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: scroll;
-    background-size: contain;
+    background-size: 30%;
     margin-top: -50px;
-    height: 86vh;
-    padding-top: 222px;
+    height: 100vh;
+    padding-top: 100px;
   }
   .muzieknootjes {
     display: block;
@@ -52,7 +52,7 @@
   .noot-1, .noot-2, .noot-3, .noot-4 {
     position: absolute;
     animation: notes 2s infinite linear;
-    font-size: 35px;
+    font-size: 40px;
     opacity: 0;
     background: -webkit-linear-gradient(#288B58, #1522F1);
     -webkit-background-clip: text;
