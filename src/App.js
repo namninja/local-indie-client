@@ -19,27 +19,62 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loggedIn: false
+      loggedIn: false,
+      showLogin: false,
+      showSignUp: false
     };
+    this.login = this.login.bind(this);
   }
+  showSignUpModal = () => {
+    this.setState({ showSignUp: true });
+  };
 
-  login() {
+  hideSignUpModal = () => {
+    this.setState({ showSignUp: false });
+  };
+  showLoginModal = () => {
+    this.setState({ showLogin: true });
+  };
+
+  hideLoginModal = () => {
+    this.setState({ showLogin: false });
+  };
+  login = () => {
     this.setState({ loggedIn: true });
-  }
+    if (this.state.showLogin === true) {
+      this.hideLoginModal();
+    }
+    if (this.state.showSignUp === true) {
+      this.hideSignUpModal();
+    }
+  };
 
-  logout() {
+  logout = () => {
     this.setState({ loggedIn: false });
-  }
+  };
 
   render() {
     return (
       <Router>
         <HomeNav
           {...this.state}
-          login={() => this.login()}
-          logout={() => this.logout()}
+          logout={this.logout}
+          showLoginModal={e => this.showLoginModal()}
+          showSignUpModal={e => this.showSignUpModal()}
         />
         <main>
+          <Login
+            showLogin={this.state.showLogin}
+            handleClose={this.hideLoginModal}
+            loggedIn={this.state.loggedIn}
+            login={this.login}
+          />
+          <Signup
+            showSignUp={this.state.showSignUp}
+            handleClose={this.hideSignUpModal}
+            loggedIn={this.state.loggedIn}
+            login={this.login}
+          />
           <Route exact path="/" component={Landing} />
           <Route exact path="/find-shows" component={FindShows} />
           <Route exact path="/browse-artists" component={BrowseArtists} />

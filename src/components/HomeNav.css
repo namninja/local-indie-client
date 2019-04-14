@@ -123,6 +123,7 @@
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
+    margin-top: 7px;
   }
   .logo {
     font-family: 'Michroma', sans-serif;
