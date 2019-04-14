@@ -3,7 +3,7 @@ import "./About.css";
 import Footer from "./Footer";
 const About = () => {
   return (
-    <div className="about">
+    <div id="about" className="about">
       <section className="statement">
         <h2 className="descript">Find and Share Local Independent Music</h2>
         <p>

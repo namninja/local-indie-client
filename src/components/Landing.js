@@ -14,7 +14,9 @@ const Landing = () => {
           <div className="noot-4">&#9834;</div>
         </div>
         <div class="arrow bounce">
-          <i class="fa fa-angle-down fa-2x" aria-hidden="true" />
+          <a href="#about" className="arrow-icon-link">
+            <i className="fa fa-angle-down fa-2x" aria-hidden="true" />
+          </a>
         </div>
       </div>
       <About />
