@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "./BrowseArtists.css";
+import "./FindEvent.css";
 import SearchResults from "./SearchResults";
 
-class BrowseArtists extends Component {
+class FindEvent extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -21,19 +21,18 @@ class BrowseArtists extends Component {
     //   }
     //   return select;
     // }
-    const results = ``;
     return (
-      <section className="find-artists">
-        <div className="find-artists-title">
-          <h1>Browse artists</h1>
+      <section className="find-event">
+        <div className="find-event-title">
+          <h1>Find an Event</h1>
         </div>
-        <form role="search" className="artists-search-form">
-          <section id="artists-search-state" className="artists-form-group">
-            <label className="search-artists-label" for="search-states">
+        <form role="search" className="event-search-form">
+          <section id="event-search-state" className="event-form-group">
+            <label className="search-event-label" for="search-states">
               Select a State
             </label>
             <div className="search-form-items">
-              <select name="search-states" className="artists-form-control">
+              <select name="search-states" className="event-form-control">
                 <option class="state-option" val="CA">
                   CA
                 </option>
@@ -43,12 +42,12 @@ class BrowseArtists extends Component {
               </button>
             </div>
           </section>
-          <section id="artists-search-city" className="artists-form-group">
-            <label className="search-artists-label" for="search-cities">
+          <section id="event-search-city" className="event-form-group">
+            <label className="search-event-label" for="search-cities">
               Select a City
             </label>
             <div className="search-form-items">
-              <select name="search-cities" className="artists-form-control">
+              <select name="search-cities" className="event-form-control">
                 <option class="city-option" val="Los Angeles">
                   Los Angeles
                 </option>
@@ -61,6 +60,24 @@ class BrowseArtists extends Component {
               </button>
             </div>
           </section>
+          <section id="event-search-date" className="event-form-group">
+            <label className="search-event-label" for="search-cities">
+              Select a Date
+            </label>
+            <div className="search-form-items">
+              <select name="search-dates" className="event-form-control">
+                <option class="date-option" val="4/17/19">
+                  4/17/19
+                </option>
+                <option class="date-option" val="4/18/19">
+                  4/18/19
+                </option>
+              </select>
+              <button id="selected-date" className="search-btn">
+                Get Results
+              </button>
+            </div>
+          </section>
         </form>
         <SearchResults />
       </section>
@@ -68,4 +85,4 @@ class BrowseArtists extends Component {
   }
 }
 
-export default BrowseArtists;
+export default FindEvent;

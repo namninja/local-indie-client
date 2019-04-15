@@ -27,8 +27,12 @@ const HomeNav = props => {
           </Link>
         ) : (
           <nav className="menu">
-            <Link to="/find-shows" className="home-links btn">
-              Find a show
+            <Link
+              to="/find-event"
+              className="home-links btn"
+              events={props.events}
+            >
+              Find an Event
             </Link>
             <Link to="/browse-artists" className="home-links btn">
               Browse Artists

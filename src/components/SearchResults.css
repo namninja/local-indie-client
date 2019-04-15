@@ -1,0 +1,34 @@
+.search-results {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5%;
+}
+
+.search-result-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-result-links {
+  margin-bottom: 10px;
+  padding: 8px;
+  color: #0C203C;
+  text-decoration: none;
+  position: relative;
+  border: none;
+  width: auto;
+}
+
+.search-result-links:hover {
+  color: #288B58;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.results-title {
+  text-align: center;
+}

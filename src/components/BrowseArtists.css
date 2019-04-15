@@ -1,0 +1,125 @@
+.find-artists {
+  background-color: #ffffff;
+  margin: 0 5% 5% 5%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.find-artists-title {
+  background-image: url("../images/StockSnap_APEXCDQT1J.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+  width: 95%;
+  height: 120px;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 10px;
+  align-self: center;
+}
+
+.artists-search-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 25px 5% 5% 5%;
+  border: 1px solid #49505754;
+  padding: 15px;
+  border-radius: 15px;
+  flex: 1 1 auto;
+}
+
+.search-artists-label {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.search-form-items {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.artists-form-control {
+  flex: 1 1 95%;
+  max-width: 95%;
+  height: 45px;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  font-size: 18px;
+  margin-right: 12px;
+  margin-bottom: 12px;
+}
+
+.artists-form-group {
+  margin-bottom: 1rem
+}
+
+.search-btn {
+  background-image: linear-gradient(to bottom right, #288B58, #1522F1);
+  border: none;
+  padding: 12px;
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  color: #ffffff;
+  width: 150px;
+  height: 45px;
+}
+
+.search-btn:hover {
+  background-image: linear-gradient(to bottom right, #1522F1, #288B58);
+}
+
+.search-btn:active {
+  transform: translateY(3px);
+}
+
+@media only screen and (min-width: 415px) {
+  .search-form-items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  .artists-form-control {
+    flex: 1 1 auto;
+    height: 45px;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    font-size: 18px;
+    margin-right: 12px;
+    margin-bottom: 12px;
+  }
+  .search-btn {
+    background-image: linear-gradient(to bottom right, #288B58, #1522F1);
+    border: none;
+    padding: 12px;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    width: 150px;
+    height: 45px;
+  }
+}
