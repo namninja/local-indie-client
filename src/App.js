@@ -13,6 +13,8 @@ import Profile from "./components/Profile";
 import FindEvent from "./components/FindEvent";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import EditProfile from "./components/EditProfile";
+import PostEvent from "./components/PostEvent";
 import BrowseArtists from "./components/BrowseArtists";
 
 class App extends Component {
@@ -111,7 +113,8 @@ class App extends Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/profile" component={Profile} />
-          <Route exact path="/profile/:id" component={Profile} />
+          <Route exact path="/edit-profile" component={EditProfile} />
+          <Route exact path="/post-event" component={PostEvent} />
         </main>
       </Router>
     );

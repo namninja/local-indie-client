@@ -54,9 +54,13 @@ class Signup extends Component {
                 required
               />
             </div>
-            <button className="signup-btn btn" onClick={this.props.login}>
+            <Link
+              to="/profile"
+              className="signup-btn btn"
+              onClick={this.props.login}
+            >
               Sign Up
-            </button>
+            </Link>
           </form>
         </section>
         <section class="modal-overlay" id="modal-overlay" />

@@ -45,7 +45,7 @@ class Login extends Component {
               />
             </div>
             <Link
-              to="profile/:id"
+              to="profile/"
               className="login-btn btn"
               onClick={this.props.login}
             >

@@ -15,16 +15,24 @@ const HomeNav = props => {
         </label>
 
         {props.loggedIn ? (
-          <Link
-            to="/"
-            className="home-links btn"
-            onClick={e => {
-              e.preventDefault();
-              props.logout();
-            }}
-          >
-            Logout
-          </Link>
+          <nav className="menu">
+            <Link to="/edit-profile" className="home-links btn">
+              Edit Profile
+            </Link>
+            <Link to="/post-event" className="home-links btn">
+              Post Event
+            </Link>
+            <Link
+              to="/"
+              className="home-links btn"
+              onClick={e => {
+                e.preventDefault();
+                props.logout();
+              }}
+            >
+              Logout
+            </Link>
+          </nav>
         ) : (
           <nav className="menu">
             <Link

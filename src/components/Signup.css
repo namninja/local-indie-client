@@ -86,6 +86,7 @@
   font-size: 20px;
   font-family: 'Montserrat', sans-serif;
   color: #ffffff;
+  text-decoration: none;
 }
 
 .signup-btn:hover {

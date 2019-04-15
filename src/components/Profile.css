@@ -1,0 +1,89 @@
+.profile-container {
+  background-color: #ffffff;
+  margin: 0 5% 5% 5%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.artist-profile {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.profile-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5%;
+}
+
+.artist-img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border: 1px solid gray;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+}
+
+.profile-details, .profile-about {
+  margin: 0 5% 0 5%;
+}
+
+.profile-about {
+  padding: 8px;
+}
+
+.about-content {
+  border: 1px solid gray;
+  padding: 8px;
+  min-height: 80px;
+}
+
+.profile-audio {
+  margin: 0 5% 5% 5%;
+}
+
+.categories {
+  font-weight: bold;
+}
+
+.profile-titles {
+  text-align: center;
+}
+
+@media only screen and (min-width: 800px) {
+  .artist-profile {
+    background-color: #ffffff;
+    margin: 0 5% 0 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .profile-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2%;
+  }
+  .profile-audio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .audio-details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .audio-details p {
+    padding: 5px;
+  }
+}
