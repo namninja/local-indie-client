@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./EditProfile.css";
-
+import { Link } from "react-router-dom";
 class EditProfile extends Component {
   render() {
     return (
@@ -96,6 +96,14 @@ class EditProfile extends Component {
                 id="profile-song"
                 name="profile-song"
               />
+            </div>
+            <div className="form-btns">
+              <button to="profile/" className="cancel-btn ">
+                Cancel
+              </button>
+              <Link to="profile/" className="submit-btn ">
+                Submit
+              </Link>
             </div>
           </form>
         </section>

@@ -42,6 +42,32 @@
   padding: 0 15%;
 }
 
+.submit-btn, .cancel-btn {
+  background-image: linear-gradient(to bottom right, #288B58, #1522F1);
+  border: none;
+  width: 125px;
+  padding: 12px;
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  color: #ffffff;
+  text-decoration: none;
+  text-align: center;
+  margin: 7px;
+}
+
+.submit-btn:hover, .cancel-btn:hover {
+  background-image: linear-gradient(to bottom right, #1522F1, #288B58);
+}
+
+.submit-btn:active, .cancel-btn:active {
+  transform: translateY(3px);
+}
+
+.form-btns {
+  display: flex;
+  justify-content: center;
+}
+
 @media only screen and (min-width: 680px) {
   .post-event-form {
     padding: 0 25%;

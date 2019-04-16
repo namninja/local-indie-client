@@ -16,6 +16,7 @@ import Signup from "./components/Signup";
 import EditProfile from "./components/EditProfile";
 import PostEvent from "./components/PostEvent";
 import BrowseArtists from "./components/BrowseArtists";
+import Event from "./components/Event";
 
 class App extends Component {
   constructor(props) {
@@ -115,6 +116,7 @@ class App extends Component {
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/edit-profile" component={EditProfile} />
           <Route exact path="/post-event" component={PostEvent} />
+          <Route path="/event" component={Event} />
         </main>
       </Router>
     );

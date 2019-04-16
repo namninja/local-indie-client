@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./PostEvent.css";
-
+import { Link } from "react-router-dom";
 class EditProfile extends Component {
   render() {
     return (
@@ -8,6 +8,17 @@ class EditProfile extends Component {
         <h2 className="post-event-title">Post Event</h2>
         <section>
           <form className="post-event-form">
+            <div className="post-event-form-group">
+              <label for="post-event-img">
+                <h4>Upload an Image:</h4>
+              </label>
+              <input
+                type="file"
+                className="file-form-control"
+                id="post-event-img"
+                name="post-event-img"
+              />
+            </div>
             <div className="post-event-form-group">
               <label for="post-event-name">
                 <h4>Event Name:</h4>
@@ -128,6 +139,14 @@ class EditProfile extends Component {
                 className="form-control form-about-control"
                 name="post-event-details"
               />
+            </div>
+            <div className="form-btns">
+              <button to="profile/" className="cancel-btn ">
+                Cancel
+              </button>
+              <Link to="profile/" className="submit-btn ">
+                Submit
+              </Link>
             </div>
           </form>
         </section>

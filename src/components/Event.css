@@ -1,4 +1,4 @@
-.profile-container {
+.event-container {
   background-color: #ffffff;
   margin: 0 5% 5% 5%;
   display: flex;
@@ -10,7 +10,7 @@
   padding: 25px;
 }
 
-.artist-profile {
+.artist-event {
   background-color: #ffffff;
   display: flex;
   justify-content: center;
@@ -18,14 +18,14 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-.profile-img {
+.event-img-container {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 5%;
 }
 
-.artist-img {
+.event-img {
   width: 100%;
   max-width: 300px;
   height: auto;
@@ -33,11 +33,11 @@
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
 }
 
-.profile-details, .profile-about {
+.event-details, .event-about {
   margin: 0 5% 0 5%;
 }
 
-.profile-about {
+.event-about {
   padding: 8px;
 }
 
@@ -47,7 +47,7 @@
   min-height: 80px;
 }
 
-.profile-audio {
+.event-audio {
   margin: 0 5% 5% 5%;
 }
 
@@ -55,12 +55,12 @@
   font-weight: bold;
 }
 
-.profile-titles {
+.event-titles {
   text-align: center;
 }
 
 @media only screen and (min-width: 800px) {
-  .artist-profile {
+  .artist-event {
     background-color: #ffffff;
     margin: 0 5% 0 5%;
     display: flex;
@@ -69,13 +69,13 @@
     flex-direction: row;
     font-family: 'Montserrat', sans-serif;
   }
-  .profile-img {
+  .event-img {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 2%;
   }
-  .profile-audio {
+  .event-audio {
     display: flex;
     flex-direction: column;
     align-items: center;
