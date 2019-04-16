@@ -16,6 +16,9 @@ const HomeNav = props => {
 
         {props.loggedIn ? (
           <nav className="menu">
+            <Link to="/profile" className="home-links btn">
+              Profile
+            </Link>
             <Link to="/edit-profile" className="home-links btn">
               Edit Profile
             </Link>

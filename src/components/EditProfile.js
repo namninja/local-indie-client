@@ -9,83 +9,92 @@ class EditProfile extends Component {
         <section>
           <form className="edit-profile-form">
             <div className="profile-form-group">
-              <label>
-                <h4>Upload an Image</h4>
+              <label for="profile-img">
+                <h4>Upload an Image:</h4>
               </label>
               <input
                 type="file"
                 className="file-form-control"
+                id="profile-img"
                 name="profile-img"
               />
             </div>
             <div className="profile-form-group">
-              <label>
+              <label for="profile-name">
                 <h4>Name:</h4>
               </label>
               <input
                 type="text"
                 className="profile-form-control"
-                name="profile-img"
+                id="profile-name"
+                name="profile-name"
               />
             </div>
             <div className="profile-form-group">
-              <label>
+              <label for="profile-genre">
                 <h4>Genre:</h4>
               </label>
               <input
                 type="text"
                 className="profile-form-control"
-                name="profile-img"
+                id="profile-genre"
+                name="profile-genre"
               />
             </div>
             <div className="profile-form-group">
-              <label>
+              <label for="profile-website">
                 <h4>Website:</h4>
               </label>
               <input
                 type="text"
                 className="profile-form-control"
-                name="profile-img"
+                id="profile-website"
+                name="profile-website"
               />
             </div>
             <div className="profile-form-group">
-              <label>
+              <label for="profile-city">
                 <h4>City:</h4>
               </label>
               <input
                 type="text"
                 className="profile-form-control"
-                name="profile-img"
+                id="profile-city"
+                name="profile-city"
               />
             </div>
             <div className="profile-form-group">
-              <label>
+              <label for="profile-state">
                 <h4>State:</h4>
               </label>
               <input
+                maxlength="2"
                 type="text"
                 className="profile-form-control"
-                name="profile-img"
+                id="profile-state"
+                name="profile-state"
               />
             </div>
             <div className="profile-form-group">
-              <label>
+              <label for="profile-about">
                 <h4>About:</h4>
               </label>
               <textarea
                 type="text"
                 className="form-control form-about-control"
-                name="journalEntry"
+                id="profile-about"
+                name="profile-about"
               />
             </div>
             <div className="profile-form-group">
-              <label>
+              <label for="profile-song">
                 <h4>Upload a Song (mp3 or wav only):</h4>
               </label>
               <input
                 type="file"
                 className="file-form-control"
-                name="profile-img"
+                id="profile-song"
+                name="profile-song"
               />
             </div>
           </form>

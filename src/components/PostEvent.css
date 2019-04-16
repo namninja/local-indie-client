@@ -1,4 +1,4 @@
-.edit-profile-container {
+.post-event-container {
   background-color: #ffffff;
   margin: 0 12% 12% 12%;
   display: flex;
@@ -9,15 +9,15 @@
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
 }
 
-.edit-profile-title {
+.post-event-title {
   text-align: center;
 }
 
-.profile-form-group {
+.post-event-form-group {
   margin-bottom: 1rem
 }
 
-.profile-form-control {
+.post-event-form-control {
   width: 100%;
   height: calc(1.5em + .75rem + 2px);
   padding: .375rem .75rem;
@@ -38,12 +38,12 @@
   min-height: 100px;
 }
 
-.edit-profile-form {
+.post-event-form {
   padding: 0 15%;
 }
 
 @media only screen and (min-width: 680px) {
-  .edit-profile-form {
+  .post-event-form {
     padding: 0 25%;
   }
 }
