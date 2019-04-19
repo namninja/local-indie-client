@@ -43,19 +43,14 @@ class Profile extends Component {
           </p>
         </section>
         <section className="profile-audio">
-          <h3 className="profile-titles">Sample Track</h3>
-          <div className="audio-details">
-            <p>
-              <span className="categories">Track Name:</span>
-            </p>
-            <p>My love is an Object</p>
-          </div>
-          <audio controls>
-            <source
-              src={require("../images/baboon_monkey.mp3")}
-              type="audio/mpeg"
-            />
-          </audio>
+          <iframe
+            width="100%"
+            height="300"
+            scrolling="no"
+            frameborder="no"
+            allow="autoplay"
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/568327059&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+          />
         </section>
         <section className="profile-events">
           <SearchResults />

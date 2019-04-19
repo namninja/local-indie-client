@@ -9,18 +9,18 @@ class EditProfile extends Component {
         <section>
           <form className="edit-profile-form">
             <div className="profile-form-group">
-              <label for="profile-img">
+              <label htmlFor="profileImage">
                 <h4>Upload an Image:</h4>
               </label>
               <input
                 type="file"
                 className="file-form-control"
-                id="profile-img"
-                name="profile-img"
+                id="profileImage"
+                name="profileImage"
               />
             </div>
             <div className="profile-form-group">
-              <label for="profile-name">
+              <label htmlFor="profile-name">
                 <h4>Name:</h4>
               </label>
               <input
@@ -28,10 +28,11 @@ class EditProfile extends Component {
                 className="profile-form-control"
                 id="profile-name"
                 name="profile-name"
+                required
               />
             </div>
             <div className="profile-form-group">
-              <label for="profile-genre">
+              <label htmlFor="profile-genre">
                 <h4>Genre:</h4>
               </label>
               <input
@@ -39,10 +40,11 @@ class EditProfile extends Component {
                 className="profile-form-control"
                 id="profile-genre"
                 name="profile-genre"
+                required
               />
             </div>
             <div className="profile-form-group">
-              <label for="profile-website">
+              <label htmlFor="profile-website">
                 <h4>Website:</h4>
               </label>
               <input
@@ -53,7 +55,7 @@ class EditProfile extends Component {
               />
             </div>
             <div className="profile-form-group">
-              <label for="profile-city">
+              <label htmlFor="profile-city">
                 <h4>City:</h4>
               </label>
               <input
@@ -64,7 +66,7 @@ class EditProfile extends Component {
               />
             </div>
             <div className="profile-form-group">
-              <label for="profile-state">
+              <label htmlFor="profile-state">
                 <h4>State:</h4>
               </label>
               <input
@@ -76,7 +78,7 @@ class EditProfile extends Component {
               />
             </div>
             <div className="profile-form-group">
-              <label for="profile-about">
+              <label htmlFor="profile-about">
                 <h4>About:</h4>
               </label>
               <textarea
@@ -87,11 +89,11 @@ class EditProfile extends Component {
               />
             </div>
             <div className="profile-form-group">
-              <label for="profile-song">
-                <h4>Upload a Song (mp3 or wav only):</h4>
+              <label htmlFor="profile-song">
+                <h4>Embed a song from SoundCloud:</h4>
               </label>
               <input
-                type="file"
+                type="text"
                 className="file-form-control"
                 id="profile-song"
                 name="profile-song"

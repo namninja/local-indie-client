@@ -24,37 +24,7 @@ class App extends Component {
     this.state = {
       loggedIn: false,
       showLogin: false,
-      showSignUp: false,
-      events: [
-        {
-          title: "Big Foot Little Dick Album release",
-          venue: "Bar Bar",
-          date: "4/17/19",
-          address: "1234 five street",
-          city: "San Diego",
-          state: "CA",
-          zipcode: "92124",
-          cost: "$10",
-          start: "8pm",
-          end: "2am",
-          details:
-            "Album release for Big Foot Little Dick. Opening bands Ponzi Schemers, Pocohontas's ghost, and Jerry Atric and the Gerriatrics"
-        },
-        {
-          title: "Similar Techno",
-          venue: "Club Black light",
-          date: "4/17/19",
-          address: "567 eigth street",
-          city: "Brooklyn",
-          state: "NY",
-          zipcode: "11234",
-          cost: "Free",
-          start: "10pm",
-          end: "2am",
-          details:
-            "5 Djs spinning the latest house songs but you willb e too drunk to really tell the difference"
-        }
-      ]
+      showSignUp: false
     };
     this.login = this.login.bind(this);
   }
