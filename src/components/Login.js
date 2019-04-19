@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import UserContext from "../contexts/UserContext";
 import "./Login.css";
+const { API_BASE_URL } = require("../config");
 
 class Login extends Component {
+  static contextType = UserContext;
   constructor(props) {
     super(props);
     this.state = {
@@ -20,7 +23,26 @@ class Login extends Component {
       email: this.state.email,
       password: this.state.password
     };
-    console.log(userData);
+    fetch(`${API_BASE_URL}/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(userData)
+    })
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error(response.statusText);
+      })
+      .then(data => {
+        this.context.login(data.user);
+        this.props.history.push("/");
+      })
+      .catch(err => {
+        this.setState({ errors: err });
+      });
   };
   render() {
     const { errors } = this.state;

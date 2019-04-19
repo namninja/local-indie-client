@@ -1,8 +1,12 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "./Signup.css";
+import UserContext from "../contexts/UserContext";
+import classnames from "classnames";
+const { API_BASE_URL } = require("../config");
 
 class Signup extends Component {
+  static contextType = UserContext;
   constructor(props) {
     super(props);
     this.state = {
@@ -15,18 +19,45 @@ class Signup extends Component {
       errors: {}
     };
   }
+
   onChange = e => {
     this.setState({ [e.target.id]: e.target.value });
   };
   onSubmit = e => {
     e.preventDefault();
     const newUser = {
+      profileName: this.state.profileName,
       email: this.state.email,
       password: this.state.password,
-      password2: this.state.password2
+      password2: this.state.password2,
+      city: this.state.city,
+      state: this.state.state
     };
-    console.log(newUser);
+    //console.log(newUser);
+    fetch(`${API_BASE_URL}/signup`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(newUser)
+    })
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error(response.statusText);
+      })
+      .then(data => {
+        if (data.message === "Signup successful") {
+          this.context.login(data.user);
+          this.props.history.push("/");
+        }
+      })
+      .catch(err => {
+        this.setState({ errors: err });
+      });
   };
+
   render() {
     const { errors } = this.state;
     const showHideClassName = this.props.showSignUp
@@ -40,7 +71,6 @@ class Signup extends Component {
             <Link to="/" className="close" onClick={this.props.handleClose}>
               <i class="fa fa-times" />
             </Link>
-
             <h2>
               <i class="fas fa-lock" /> Sign Up
             </h2>
@@ -51,13 +81,11 @@ class Signup extends Component {
               <input
                 id="profileName"
                 type="text"
-                class="form-control"
+                className="form-control"
                 name="profileName"
                 placeholder="My Band"
                 required
                 onChange={this.onChange}
-                value={this.state.profileName}
-                error={errors.profileName}
               />
             </div>
             <div className="form-group">
@@ -65,7 +93,7 @@ class Signup extends Component {
               <input
                 id="email"
                 type="text"
-                class="form-control"
+                className="form-control"
                 name="email"
                 placeholder="my@email.com"
                 required
@@ -79,13 +107,12 @@ class Signup extends Component {
               <input
                 id="city"
                 type="text"
-                class="form-control"
+                className="form-control"
                 name="city"
                 placeholder="New York"
                 required
                 onChange={this.onChange}
                 value={this.state.city}
-                error={errors.city}
               />
             </div>
             <div className="form-group">
@@ -94,13 +121,12 @@ class Signup extends Component {
                 maxlength="2"
                 id="state"
                 type="text"
-                class="form-control"
+                className="form-control"
                 name="state"
                 placeholder="CA"
                 required
                 onChange={this.onChange}
                 value={this.state.state}
-                error={errors.state}
               />
             </div>
             <div className="form-group">
@@ -140,10 +166,10 @@ class Signup extends Component {
             </button>
           </form>
         </section>
-        <section class="modal-overlay" id="modal-overlay" />
+        <section className="modal-overlay" id="modal-overlay" />
       </div>
     );
   }
 }
 
-export default Signup;
+export default withRouter(Signup);

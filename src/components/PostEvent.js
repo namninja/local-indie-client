@@ -9,25 +9,25 @@ class EditProfile extends Component {
         <section>
           <form className="post-event-form">
             <div className="post-event-form-group">
-              <label for="post-event-img">
+              <label for="eventImg">
                 <h4>Upload an Image:</h4>
               </label>
               <input
                 type="file"
                 className="file-form-control"
-                id="post-event-img"
-                name="post-event-img"
+                id="eventImg"
+                name="eventImg"
               />
             </div>
             <div className="post-event-form-group">
-              <label for="post-event-name">
+              <label for="eventName">
                 <h4>Event Name:</h4>
               </label>
               <input
                 type="text"
                 className="post-event-form-control"
-                id="post-event-name"
-                name="post-event-name"
+                id="eventName"
+                name="eventName"
               />
             </div>
             <div className="post-event-form-group">
@@ -42,102 +42,103 @@ class EditProfile extends Component {
               />
             </div>
             <div className="post-event-form-group">
-              <label for="post-event-date">
+              <label for="eventDate">
                 <h4>Date:</h4>
               </label>
               <input
                 type="date"
                 className="post-event-form-control"
-                id="post-event-date"
-                name="post-event-date"
+                id="eventDate"
+                name="eventDate"
               />
             </div>
             <div className="post-event-form-group">
-              <label for="post-event-address">
+              <label for="eventAddress">
                 <h4>Address:</h4>
               </label>
               <input
                 type="text"
                 className="post-event-form-control"
-                id="post-event-address"
-                name="post-event-address"
+                id="eventAddress"
+                name="eventAddress"
               />
             </div>
             <div className="post-event-form-group">
-              <label for="post-event-address2">
+              <label for="eventAddress2">
                 <h4>Address 2:</h4>
               </label>
               <input
                 type="text"
                 className="post-event-form-control"
-                id="post-event-address2"
-                name="post-event-address2"
+                id="eventAddress2"
+                name="eventAddress2"
               />
             </div>
             <div className="post-event-form-group">
-              <label for="post-event-city">
+              <label for="eventCity">
                 <h4>City:</h4>
               </label>
               <input
                 type="text"
                 className="post-event-form-control"
-                id="post-event-city"
-                name="post-event-city"
+                id="eventCity"
+                name="eventCity"
               />
             </div>
             <div className="post-event-form-group">
-              <label for="post-event-state">
+              <label for="eventState">
                 <h4>State:</h4>
               </label>
               <input
                 maxlength="2"
                 type="text"
                 className="post-event-form-control"
-                id="post-event-state"
-                name="post-event-state"
+                id="eventState"
+                name="eventState"
               />
             </div>
             <div className="post-event-form-group">
-              <label for="post-event-cost">
+              <label for="eventCost">
                 <h4>Cost:</h4>
               </label>
               <input
                 type="text"
                 className="post-event-form-control"
-                id="post-event-cost"
-                name="post-event-cost"
+                id="eventCost"
+                name="eventCost"
               />
             </div>
             <div className="post-event-form-group">
-              <label for="post-event-start">
+              <label for="eventStart">
                 <h4>Start Time:</h4>
               </label>
               <input
                 type="text"
                 className="post-event-form-control"
-                id="post-event-start"
-                name="post-event-start"
+                id="eventStart"
+                name="eventStart"
               />
             </div>
             <div className="post-event-form-group">
-              <label for="post-event-end">
+              <label for="eventEnd">
                 <h4>End Time:</h4>
               </label>
               <input
                 type="text"
                 className="post-event-form-control"
-                id="post-event-end"
-                name="post-event-end"
+                id="eventEnd"
+                name="eventEnd"
               />
             </div>
             <div className="post-event-form-group">
-              <label>
+              <label for="eventDetails">
                 <h4>Additional Details:</h4>
               </label>
               <textarea
                 type="text"
                 className="form-control form-about-control"
-                name="post-event-details"
+                id="eventDetails"
+                name="eventDetails"
               />
             </div>
             <div className="form-btns">

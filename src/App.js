@@ -7,6 +7,8 @@ import {
 } from "react-router-dom";
 import "./App.css";
 
+import UserContext from "./contexts/UserContext";
+
 import HomeNav from "./components/HomeNav";
 import Landing from "./components/Landing";
 import Profile from "./components/Profile";
@@ -24,71 +26,68 @@ class App extends Component {
     this.state = {
       loggedIn: false,
       showLogin: false,
-      showSignUp: false
+      showSignUp: false,
+      user: {
+        loggedInUser: null,
+        login: user => {
+          let oldUser = this.state.user;
+          oldUser.loggedInUser = user;
+          this.setState({ user: oldUser, showLogin: false, showSignUp: false });
+        },
+        logout: () => {
+          let oldUser = this.state.user;
+          oldUser.loggedInUser = null;
+        }
+      }
     };
-    this.login = this.login.bind(this);
   }
-  showSignUpModal = () => {
-    this.setState({ showSignUp: true });
-  };
 
-  hideSignUpModal = () => {
-    this.setState({ showSignUp: false });
-  };
   showLoginModal = () => {
     this.setState({ showLogin: true });
   };
-
   hideLoginModal = () => {
     this.setState({ showLogin: false });
   };
-  login = () => {
-    this.setState({ loggedIn: true });
-    if (this.state.showLogin === true) {
-      this.hideLoginModal();
-    }
-    if (this.state.showSignUp === true) {
-      this.hideSignUpModal();
-    }
+  showSignUpModal = () => {
+    this.setState({ showSignUp: true });
   };
-
-  logout = () => {
-    this.setState({ loggedIn: false });
+  hideSignUpModal = () => {
+    this.setState({ showSignUp: false });
   };
-
   render() {
     return (
-      <Router>
-        <HomeNav
-          {...this.state}
-          logout={this.logout}
-          showLoginModal={e => this.showLoginModal()}
-          showSignUpModal={e => this.showSignUpModal()}
-        />
-        <main>
-          <Login
-            showLogin={this.state.showLogin}
-            handleClose={this.hideLoginModal}
-            loggedIn={this.state.loggedIn}
-            login={this.login}
+      <UserContext.Provider value={this.state.user}>
+        <Router>
+          <HomeNav
+            {...this.state}
+            showLoginModal={e => this.showLoginModal()}
+            showSignUpModal={e => this.showSignUpModal()}
           />
-          <Signup
-            showSignUp={this.state.showSignUp}
-            handleClose={this.hideSignUpModal}
-            loggedIn={this.state.loggedIn}
-            login={this.login}
-          />
-          <Route exact path="/" component={Landing} />
-          <Route exact path="/find-event" component={FindEvent} />
-          <Route exact path="/browse-artists" component={BrowseArtists} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={Signup} />
-          <Route exact path="/profile" component={Profile} />
-          <Route exact path="/edit-profile" component={EditProfile} />
-          <Route exact path="/post-event" component={PostEvent} />
-          <Route path="/event" component={Event} />
-        </main>
-      </Router>
+          <main>
+            <Login
+              showLogin={this.state.showLogin}
+              handleClose={this.hideLoginModal}
+              loggedIn={this.state.loggedIn}
+              login={this.login}
+            />
+            <Signup
+              showSignUp={this.state.showSignUp}
+              handleClose={this.hideSignUpModal}
+              loggedIn={this.state.loggedIn}
+              login={this.login}
+            />
+            <Route exact path="/" component={Landing} />
+            <Route exact path="/find-event" component={FindEvent} />
+            <Route exact path="/browse-artists" component={BrowseArtists} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/edit-profile" component={EditProfile} />
+            <Route exact path="/post-event" component={PostEvent} />
+            <Route path="/event" component={Event} />
+          </main>
+        </Router>
+      </UserContext.Provider>
     );
   }
 }
