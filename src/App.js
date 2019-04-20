@@ -32,11 +32,19 @@ class App extends Component {
         login: user => {
           let oldUser = this.state.user;
           oldUser.loggedInUser = user;
-          this.setState({ user: oldUser, showLogin: false, showSignUp: false });
+          this.setState({
+            user: oldUser,
+            showLogin: false,
+            showSignUp: false,
+            loggedIn: true
+          });
         },
         logout: () => {
           let oldUser = this.state.user;
           oldUser.loggedInUser = null;
+          this.setState({
+            loggedIn: false
+          });
         }
       }
     };
@@ -81,7 +89,7 @@ class App extends Component {
             <Route exact path="/browse-artists" component={BrowseArtists} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
-            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/profile/:id" component={Profile} />
             <Route exact path="/edit-profile" component={EditProfile} />
             <Route exact path="/post-event" component={PostEvent} />
             <Route path="/event" component={Event} />

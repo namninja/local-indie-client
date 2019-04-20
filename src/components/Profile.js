@@ -1,36 +1,81 @@
 import React, { Component } from "react";
 import "./Profile.css";
 import SearchResults from "./SearchResults";
+import UserContext from "../contexts/UserContext";
+const { API_BASE_URL } = require("../config");
+
 class Profile extends Component {
+  static contextType = UserContext;
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: "",
+      imgURL: "",
+      profileName: "",
+      genre: "",
+      website: "",
+      city: "",
+      state: "",
+      about: "",
+      soundCloud: ""
+    };
+  }
+  componentDidMount() {
+    let user = this.context.loggedInUser;
+    let token = window.localStorage.getItem("Bearer");
+    console.log(user, "------here i am");
+    console.log(token, "------here i am");
+    fetch(`${API_BASE_URL}/profile/${user._id}`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error(response.statusText);
+      })
+      .then(data => {
+        this.setState(data);
+      })
+      .catch(err => {
+        this.setState({ errors: err });
+      });
+  }
   render() {
+    let alt = `Picture of ${this.state.profileName}`;
+    let location = `${this.state.city}, ${this.state.state}`;
+    let soundCloudExtract = this.state.soundCloud.split(/src="(.*)"/);
+    let soundCloudSRC = soundCloudExtract[1];
     return (
       <div className="profile-container">
         <h3 className="profile-titles">Artist Profile</h3>
         <section className="artist-profile">
           <section className="profile-img">
-            <img
-              className="artist-img"
-              src={require("../images/default-avatar.png")}
-            />
+            <img className="artist-img" src={this.state.imgURL} alt={alt} />
           </section>
           <section className="profile-details">
             <p>
               <span className="categories">Name:</span>
             </p>
-            <p>JQuery Eye for the Straight Guy</p>
+            <p>{this.state.profileName}</p>
             <p>
               <span className="categories">Genre:</span>
             </p>
-            <p>Rap</p>
+            <p>{this.state.genre}</p>
 
             <p>
               <span className="categories">Website:</span>
             </p>
-            <p>Soundcloud or something</p>
+            <p>
+              <a href={this.state.website}>{this.state.website}</a>
+            </p>
             <p>
               <span className="categories">From:</span>
             </p>
-            <p>Brooklyn, NY</p>
+            <p>{location}</p>
           </section>
         </section>
 
@@ -38,18 +83,16 @@ class Profile extends Component {
           <h3>
             <span className="categories">About:</span>
           </h3>
-          <p className="about-content">
-            We are gay programmers that rap about API calls muthafucka.
-          </p>
+          <p className="about-content">{this.state.about}</p>
         </section>
         <section className="profile-audio">
           <iframe
             width="100%"
-            height="300"
+            height="200"
             scrolling="no"
             frameborder="no"
             allow="autoplay"
-            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/568327059&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+            src={soundCloudSRC}
           />
         </section>
         <section className="profile-events">

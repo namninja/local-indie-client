@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import UserContext from "../contexts/UserContext";
+import { Link, withRouter } from "react-router-dom";
 import "./Login.css";
+import UserContext from "../contexts/UserContext";
 const { API_BASE_URL } = require("../config");
 
 class Login extends Component {
@@ -14,6 +14,7 @@ class Login extends Component {
       errors: {}
     };
   }
+
   onChange = e => {
     this.setState({ [e.target.id]: e.target.value });
   };
@@ -38,7 +39,9 @@ class Login extends Component {
       })
       .then(data => {
         this.context.login(data.user);
-        this.props.history.push("/");
+        window.localStorage.setItem("Bearer", data.user.token);
+        this.context.loggedIn = true;
+        this.props.history.push(`/profile/${data.user._id}`);
       })
       .catch(err => {
         this.setState({ errors: err });
@@ -106,4 +109,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);

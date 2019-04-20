@@ -50,7 +50,9 @@ class Signup extends Component {
       .then(data => {
         if (data.message === "Signup successful") {
           this.context.login(data.user);
-          this.props.history.push("/");
+          window.localStorage.setItem("Bearer", data.user.token);
+          this.context.loggedIn = true;
+          this.props.history.push(`/profile/${data.user._id}`);
         }
       })
       .catch(err => {
