@@ -9,6 +9,11 @@
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
 }
 
+input[type=file] {
+  visibility: hidden;
+  position: absolute
+}
+
 .edit-profile-title {
   text-align: center;
 }

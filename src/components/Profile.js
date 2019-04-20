@@ -21,10 +21,8 @@ class Profile extends Component {
     };
   }
   componentDidMount() {
-    let user = this.context.loggedInUser;
-    let token = window.localStorage.getItem("Bearer");
-    console.log(user, "------here i am");
-    console.log(token, "------here i am");
+    const user = this.context.loggedInUser;
+    const token = window.localStorage.getItem("Bearer");
     fetch(`${API_BASE_URL}/profile/${user._id}`, {
       method: "GET",
       headers: {

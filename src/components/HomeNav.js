@@ -16,10 +16,16 @@ const HomeNav = props => {
 
         {props.loggedIn ? (
           <nav className="menu">
-            <Link to="/profile" className="home-links btn">
+            <Link
+              to={`/profile/${props.user.loggedInUser._id}`}
+              className="home-links btn"
+            >
               Profile
             </Link>
-            <Link to="/edit-profile" className="home-links btn">
+            <Link
+              to={`/edit-profile/${props.user.loggedInUser._id}`}
+              className="home-links btn"
+            >
               Edit Profile
             </Link>
             <Link to="/post-event" className="home-links btn">
@@ -30,7 +36,7 @@ const HomeNav = props => {
               className="home-links btn"
               onClick={e => {
                 e.preventDefault();
-                props.logout();
+                props.user.logout();
               }}
             >
               Logout

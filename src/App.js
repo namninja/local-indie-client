@@ -3,7 +3,8 @@ import {
   BrowserRouter as Router,
   Route,
   Redirect,
-  Switch
+  Switch,
+  withRouter
 } from "react-router-dom";
 import "./App.css";
 
@@ -90,7 +91,7 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/profile/:id" component={Profile} />
-            <Route exact path="/edit-profile" component={EditProfile} />
+            <Route exact path="/edit-profile/:id" component={EditProfile} />
             <Route exact path="/post-event" component={PostEvent} />
             <Route path="/event" component={Event} />
           </main>
