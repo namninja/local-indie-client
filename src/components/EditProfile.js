@@ -30,10 +30,14 @@ class EditProfile extends Component {
       redirect: false
     };
   }
+
   componentDidMount() {
-    const user = this.context.loggedInUser;
+    const id = window.localStorage.getItem("id");
     const token = window.localStorage.getItem("Bearer");
-    fetch(`${API_BASE_URL}/profile/${user._id}`, {
+    if (!id) {
+      return (window.location.href = "/");
+    }
+    fetch(`${API_BASE_URL}/profile/${id}`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`
@@ -81,9 +85,9 @@ class EditProfile extends Component {
       return errs.forEach(err => this.toast(err, "custom", 2000, toastColor));
     }
 
-    const user = this.context.loggedInUser;
+    const id = window.localStorage.getItem("id");
     const token = window.localStorage.getItem("Bearer");
-    fetch(`${API_BASE_URL}/image-upload/${user._id}`, {
+    fetch(`${API_BASE_URL}/image-upload/${id}`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`
@@ -115,7 +119,7 @@ class EditProfile extends Component {
   };
   onSubmit = e => {
     e.preventDefault();
-    const user = this.context.loggedInUser;
+    const id = window.localStorage.getItem("id");
     const token = window.localStorage.getItem("Bearer");
 
     const userData = {
@@ -130,7 +134,7 @@ class EditProfile extends Component {
       about: this.state.about,
       soundCloud: this.state.soundCloud
     };
-    fetch(`${API_BASE_URL}/edit-profile/${user._id}`, {
+    fetch(`${API_BASE_URL}/edit-profile/${id}`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -155,8 +159,9 @@ class EditProfile extends Component {
 
   toast = notify.createShowQueue();
   render() {
+    const id = window.localStorage.getItem("id");
     if (this.state.redirect === true) {
-      return <Redirect to={`/profile/${this.context.loggedInUser._id}`} />;
+      return <Redirect to={`/profile/${id}`} />;
     }
     return (
       <div className="edit-profile-container">
@@ -181,10 +186,7 @@ class EditProfile extends Component {
               onChange={this.onChange}
             />
             {this.state.uploaded ? (
-              <img
-                className="thumbnail"
-                src={this.state.cloudinaryImg[0].url}
-              />
+              <img className="thumbnail" src={this.state.cloudinaryImg} />
             ) : null}
           </div>
 
@@ -291,10 +293,7 @@ class EditProfile extends Component {
               />
             </div>
             <div className="form-btns">
-              <Link
-                to={`/profile/${this.context.loggedInUser._id}`}
-                className="submit-btn "
-              >
+              <Link to={`/profile/${id}`} className="submit-btn ">
                 Cancel
               </Link>
 

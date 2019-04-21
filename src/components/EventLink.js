@@ -4,7 +4,7 @@ import Moment from "react-moment";
 
 export default function Contact(props) {
   return (
-    <div id={`event-${props.index}`} className="event">
+    <div id={props.id} className="event">
       <a href="#" className="event-link">
         <img
           className="event-thumbnail"

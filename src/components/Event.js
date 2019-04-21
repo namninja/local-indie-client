@@ -43,7 +43,7 @@ class Event extends Component {
           <h3>
             <span className="categories">Additonal Details:</span>
           </h3>
-          <p className="about-content">Details</p>
+          <p className="event-about-content">Details</p>
         </section>
       </div>
     );

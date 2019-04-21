@@ -6,10 +6,8 @@ import {
   Switch,
   withRouter
 } from "react-router-dom";
-import "./App.css";
-
 import UserContext from "./contexts/UserContext";
-
+import "./App.css";
 import HomeNav from "./components/HomeNav";
 import Landing from "./components/Landing";
 import Profile from "./components/Profile";
@@ -20,6 +18,8 @@ import EditProfile from "./components/EditProfile";
 import PostEvent from "./components/PostEvent";
 import BrowseArtists from "./components/BrowseArtists";
 import Event from "./components/Event";
+
+const { API_BASE_URL } = require("./config");
 
 class App extends Component {
   constructor(props) {
@@ -39,10 +39,15 @@ class App extends Component {
             showSignUp: false,
             loggedIn: true
           });
+          window.localStorage.setItem("Bearer", user.token);
+          window.localStorage.setItem("id", user._id);
         },
         logout: () => {
           let oldUser = this.state.user;
           oldUser.loggedInUser = null;
+          localStorage.removeItem("id");
+          localStorage.removeItem("Bearer");
+          window.location.href = "/";
           this.setState({
             loggedIn: false
           });
@@ -50,7 +55,39 @@ class App extends Component {
       }
     };
   }
-
+  componentDidMount() {
+    // check to see if ID is set
+    // in local and this state user null
+    // api call with pass token
+    const id = window.localStorage.getItem("id");
+    const token = window.localStorage.getItem("Bearer");
+    if (id && token) {
+      fetch(`${API_BASE_URL}/api/validate`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+        .then(response => {
+          if (response.ok) {
+            return response.json();
+          }
+          throw new Error(response.statusText);
+        })
+        .then(data => {
+          const oldUser = this.state.user;
+          oldUser.loggedInUser = data.user;
+          oldUser.loggedInUser.token = token;
+          this.setState({
+            loggedIn: true,
+            user: oldUser
+          });
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  }
   showLoginModal = () => {
     this.setState({ showLogin: true });
   };

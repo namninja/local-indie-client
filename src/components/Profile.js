@@ -22,9 +22,12 @@ class Profile extends Component {
     };
   }
   componentWillMount() {
-    const user = this.context.loggedInUser;
+    const id = window.localStorage.getItem("id");
     const token = window.localStorage.getItem("Bearer");
-    fetch(`${API_BASE_URL}/profile/${user._id}`, {
+    if (!id) {
+      return (window.location.href = "/");
+    }
+    fetch(`${API_BASE_URL}/profile/${id}`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`
@@ -91,8 +94,8 @@ class Profile extends Component {
             <span className="categories">Music Sample:</span>
           </h3>
           <iframe
-            width="100%"
-            height="300"
+            width="75%"
+            height="150"
             scrolling="no"
             frameBorder="no"
             allow="autoplay"

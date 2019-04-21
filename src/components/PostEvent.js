@@ -64,10 +64,10 @@ class PostEvent extends Component {
     if (errs.length) {
       return errs.forEach(err => this.toast(err, "custom", 2000, toastColor));
     }
-
-    const user = this.context.loggedInUser;
+    const id = window.localStorage.getItem("id");
     const token = window.localStorage.getItem("Bearer");
-    fetch(`${API_BASE_URL}/image-upload/${user._id}`, {
+
+    fetch(`${API_BASE_URL}/image-upload/${id}`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`
@@ -99,7 +99,7 @@ class PostEvent extends Component {
   };
   onSubmit = e => {
     e.preventDefault();
-    const user = this.context.loggedInUser;
+    const id = window.localStorage.getItem("id");
     const token = window.localStorage.getItem("Bearer");
 
     const eventData = {
@@ -119,7 +119,7 @@ class PostEvent extends Component {
       eventEnd: this.state.eventEnd,
       eventDetails: this.state.eventDetails
     };
-    fetch(`${API_BASE_URL}/post-event/${user._id}`, {
+    fetch(`${API_BASE_URL}/post-event/${id}`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -169,10 +169,7 @@ class PostEvent extends Component {
               onChange={this.onChange}
             />
             {this.state.uploaded ? (
-              <img
-                className="thumbnail"
-                src={this.state.cloudinaryImg[0].url}
-              />
+              <img className="thumbnail" src={this.state.cloudinaryImg} />
             ) : null}
           </div>
 

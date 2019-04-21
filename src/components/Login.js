@@ -40,7 +40,6 @@ class Login extends Component {
       })
       .then(data => {
         this.context.login(data.user);
-        window.localStorage.setItem("Bearer", data.user.token);
         this.context.loggedIn = true;
         this.props.history.push(`/profile/${data.user._id}`);
       })

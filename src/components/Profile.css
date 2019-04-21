@@ -42,9 +42,13 @@
 }
 
 .about-content {
-  border: 1px solid gray;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
   padding: 8px;
   min-height: 80px;
+}
+
+.profile-events {
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .profile-audio {
