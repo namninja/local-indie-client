@@ -13,7 +13,7 @@ const Landing = () => {
           <div className="noot-3">&#9839; &#9834;</div>
           <div className="noot-4">&#9834;</div>
         </div>
-        <div class="arrow bounce">
+        <div className="arrow bounce">
           <a href="#about" className="arrow-icon-link">
             <i className="fa fa-angle-down fa-2x" aria-hidden="true" />
           </a>

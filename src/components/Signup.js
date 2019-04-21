@@ -70,10 +70,10 @@ class Signup extends Component {
         <section className="modal-signup-main">
           <div className="signup-header">
             <Link to="/" className="close" onClick={this.props.handleClose}>
-              <i class="fa fa-times" />
+              <i className="fa fa-times" />
             </Link>
             <h2>
-              <i class="fas fa-lock" /> Sign Up
+              <i className="fas fa-lock" /> Sign Up
             </h2>
           </div>
           <form className="signup-form" noValidate onSubmit={this.onSubmit}>
@@ -119,7 +119,7 @@ class Signup extends Component {
             <div className="form-group">
               <label htmlFor="state">State</label>
               <input
-                maxlength="2"
+                maxLength="2"
                 id="state"
                 type="text"
                 className="form-control"

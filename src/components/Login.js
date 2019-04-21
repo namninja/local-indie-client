@@ -16,7 +16,7 @@ class Login extends Component {
   }
 
   onChange = e => {
-    this.setState({ [e.target.id]: e.target.value });
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   onSubmit = e => {
@@ -58,35 +58,35 @@ class Login extends Component {
         <section className="modal-main">
           <div className="login-header">
             <Link to="/" className="close" onClick={this.props.handleClose}>
-              <i class="fa fa-times" />
+              <i className="fa fa-times" />
             </Link>
 
             <h2>
-              <i class="fas fa-lock" /> Login
+              <i className="fas fa-lock" /> Login
             </h2>
           </div>
           <form className="log-form" noValidate onSubmit={this.onSubmit}>
             <div className="form-group">
-              <label>Email</label>
+              <label htmlFor="log-email">Email</label>
               <input
                 onChange={this.onChange}
                 value={this.state.email}
                 error={errors.email}
-                id="email"
+                id="log-email"
                 type="text"
-                class="form-control"
+                className="form-control"
                 name="email"
                 placeholder="demo@demo.com"
                 required
               />
             </div>
             <div className="form-group">
-              <label htmlFor="password">Password</label>
+              <label htmlFor="log-password">Password</label>
               <input
                 onChange={this.onChange}
                 value={this.state.password}
                 error={errors.password}
-                id="password"
+                id="log-password"
                 type="password"
                 className="form-control"
                 name="password"
@@ -103,7 +103,7 @@ class Login extends Component {
             </button>
           </form>
         </section>
-        <section class="modal-overlay" id="modal-overlay" />
+        <section className="modal-overlay" id="modal-overlay" />
       </div>
     );
   }

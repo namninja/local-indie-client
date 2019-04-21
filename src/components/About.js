@@ -15,7 +15,7 @@ const About = () => {
       </section>
       <section className="about-details">
         <article>
-          <i class="fas fa-guitar" />
+          <i className="fas fa-guitar" />
           <h3> Are you an artist?</h3>
           <p>
             Create a profile and get discovered. Share your songs, post upcoming
@@ -23,7 +23,7 @@ const About = () => {
           </p>
         </article>
         <article>
-          <i class="fas fa-music" />
+          <i className="fas fa-music" />
           <h3>Looking for Live Music?</h3>
           <p>
             Browse all the shows going on in your city. Discover and support
@@ -31,7 +31,7 @@ const About = () => {
           </p>
         </article>
         <article>
-          <i class="fas fa-compact-disc" />
+          <i className="fas fa-compact-disc" />
           <h3>Are you a Promoter?</h3>
           <p>
             Create a profile and post events for your venue. Browse local

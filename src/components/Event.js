@@ -11,6 +11,7 @@ class Event extends Component {
             <img
               className="event-img"
               src={require("../images/default-avatar.png")}
+              alt="name of event"
             />
           </section>
           <section className="event-details">

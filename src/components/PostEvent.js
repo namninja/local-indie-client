@@ -169,7 +169,11 @@ class PostEvent extends Component {
               onChange={this.onChange}
             />
             {this.state.uploaded ? (
-              <img className="thumbnail" src={this.state.cloudinaryImg} />
+              <img
+                className="thumbnail"
+                src={this.state.cloudinaryImg}
+                alt="uploaded thumbnail"
+              />
             ) : null}
           </div>
 

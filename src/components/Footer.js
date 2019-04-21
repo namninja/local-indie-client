@@ -7,7 +7,7 @@ const Footer = () => {
       <div id="copyright">
         <hr />
         <a href="https://github.com/namninja" target="_blank">
-          <i class="fab fa-github"> Nam Ninja</i>
+          <i className="fab fa-github"> Nam Ninja</i>
         </a>
       </div>
     </div>

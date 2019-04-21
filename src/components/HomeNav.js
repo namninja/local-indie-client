@@ -10,8 +10,8 @@ const HomeNav = props => {
           local indie
         </Link>
         <input className="menu-btn" type="checkbox" id="menu-btn" />
-        <label className="menu-icon" for="menu-btn">
-          <span class="navicon" />
+        <label className="menu-icon" htmlFor="menu-btn">
+          <span className="navicon" />
         </label>
 
         {props.loggedIn ? (
