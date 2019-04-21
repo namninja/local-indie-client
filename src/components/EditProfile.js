@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Notifications, { notify } from "react-notify-toast";
 import "./EditProfile.css";
-import { Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faImage } from "@fortawesome/free-solid-svg-icons";
 import UserContext from "../contexts/UserContext";
@@ -99,7 +99,8 @@ class EditProfile extends Component {
       .then(cloudinaryImg => {
         this.setState({
           uploaded: true,
-          cloudinaryImg
+          cloudinaryImg: cloudinaryImg[0].url,
+          imgURL: cloudinaryImg[0].url
         });
       })
       .catch(err => {
@@ -116,13 +117,16 @@ class EditProfile extends Component {
     e.preventDefault();
     const user = this.context.loggedInUser;
     const token = window.localStorage.getItem("Bearer");
+
     const userData = {
-      imgURL: this.state.cloudinaryImg[0].url,
+      imgURL: this.state.imgURL,
       profileName: this.state.profileName,
       genre: this.state.genre,
       website: this.state.website,
       city: this.state.city,
       state: this.state.state,
+      normalizedCity: this.state.city.toUpperCase(),
+      normalizedState: this.state.state.toUpperCase(),
       about: this.state.about,
       soundCloud: this.state.soundCloud
     };
@@ -140,16 +144,19 @@ class EditProfile extends Component {
         }
         throw new Error(response.statusText);
       })
+      .then(() => {
+        return this.toast("Profile Updated", "custom", 2000, toastColor);
+      })
       .then(() => this.setState(() => ({ redirect: true })))
       .catch(err => {
-        this.setState({ errors: err });
+        this.setState({ errs: err });
       });
   };
 
   toast = notify.createShowQueue();
   render() {
     if (this.state.redirect === true) {
-      <Redirect to={`/profile/${this.context.loggedInUser._id}`} />;
+      return <Redirect to={`/profile/${this.context.loggedInUser._id}`} />;
     }
     return (
       <div className="edit-profile-container">
@@ -284,12 +291,13 @@ class EditProfile extends Component {
               />
             </div>
             <div className="form-btns">
-              <button
+              <Link
                 to={`/profile/${this.context.loggedInUser._id}`}
-                className="cancel-btn "
+                className="submit-btn "
               >
                 Cancel
-              </button>
+              </Link>
+
               <button type="submit" className="submit-btn ">
                 Submit
               </button>

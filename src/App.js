@@ -92,7 +92,7 @@ class App extends Component {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/profile/:id" component={Profile} />
             <Route exact path="/edit-profile/:id" component={EditProfile} />
-            <Route exact path="/post-event" component={PostEvent} />
+            <Route exact path="/post-event/:id" component={PostEvent} />
             <Route path="/event" component={Event} />
           </main>
         </Router>

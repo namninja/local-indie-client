@@ -86,9 +86,9 @@ class Profile extends Component {
         <section className="profile-audio">
           <iframe
             width="100%"
-            height="100"
+            height="300"
             scrolling="no"
-            frameborder="no"
+            frameBorder="no"
             allow="autoplay"
             src={soundCloudSRC}
           />

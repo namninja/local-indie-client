@@ -28,7 +28,10 @@ const HomeNav = props => {
             >
               Edit Profile
             </Link>
-            <Link to="/post-event" className="home-links btn">
+            <Link
+              to={`/post-event/${props.user.loggedInUser._id}`}
+              className="home-links btn"
+            >
               Post Event
             </Link>
             <Link
