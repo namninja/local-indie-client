@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import Notifications, { notify } from "react-notify-toast";
 import "./EditProfile.css";
-import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faImages, faImage } from "@fortawesome/free-solid-svg-icons";
+import { faImage } from "@fortawesome/free-solid-svg-icons";
 import UserContext from "../contexts/UserContext";
 const { API_BASE_URL } = require("../config");
 
@@ -18,8 +18,39 @@ class EditProfile extends Component {
     super(props);
     this.state = {
       uploaded: false,
-      profileImage: ""
+      cloudinaryImg: "",
+      imgURL: "",
+      profileName: "",
+      genre: "",
+      website: "",
+      city: "",
+      state: "",
+      about: "",
+      soundCloud: "",
+      redirect: false
     };
+  }
+  componentDidMount() {
+    const user = this.context.loggedInUser;
+    const token = window.localStorage.getItem("Bearer");
+    fetch(`${API_BASE_URL}/profile/${user._id}`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error(response.statusText);
+      })
+      .then(data => {
+        this.setState(data);
+      })
+      .catch(err => {
+        this.setState({ errors: err });
+      });
   }
 
   onChange = e => {
@@ -65,10 +96,10 @@ class EditProfile extends Component {
         }
         return res.json();
       })
-      .then(profileImage => {
+      .then(cloudinaryImg => {
         this.setState({
           uploaded: true,
-          profileImage
+          cloudinaryImg
         });
       })
       .catch(err => {
@@ -78,8 +109,48 @@ class EditProfile extends Component {
         });
       });
   };
+  handleChange = e => {
+    this.setState({ [e.target.id]: e.target.value });
+  };
+  onSubmit = e => {
+    e.preventDefault();
+    const user = this.context.loggedInUser;
+    const token = window.localStorage.getItem("Bearer");
+    const userData = {
+      imgURL: this.state.cloudinaryImg[0].url,
+      profileName: this.state.profileName,
+      genre: this.state.genre,
+      website: this.state.website,
+      city: this.state.city,
+      state: this.state.state,
+      about: this.state.about,
+      soundCloud: this.state.soundCloud
+    };
+    fetch(`${API_BASE_URL}/edit-profile/${user._id}`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(userData)
+    })
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error(response.statusText);
+      })
+      .then(() => this.setState(() => ({ redirect: true })))
+      .catch(err => {
+        this.setState({ errors: err });
+      });
+  };
+
   toast = notify.createShowQueue();
   render() {
+    if (this.state.redirect === true) {
+      <Redirect to={`/profile/${this.context.loggedInUser._id}`} />;
+    }
     return (
       <div className="edit-profile-container">
         <Notifications />
@@ -102,9 +173,15 @@ class EditProfile extends Component {
               name="profileImage"
               onChange={this.onChange}
             />
+            {this.state.uploaded ? (
+              <img
+                className="thumbnail"
+                src={this.state.cloudinaryImg[0].url}
+              />
+            ) : null}
           </div>
 
-          <form className="edit-profile-form">
+          <form className="edit-profile-form" onSubmit={this.onSubmit}>
             <div className="profile-form-group">
               <label htmlFor="profileName">
                 <h4>Name:</h4>
@@ -115,6 +192,8 @@ class EditProfile extends Component {
                 className="profile-form-control"
                 id="profileName"
                 name="profileName"
+                value={this.state.profileName}
+                onChange={this.handleChange}
                 required
               />
             </div>
@@ -128,6 +207,8 @@ class EditProfile extends Component {
                 className="profile-form-control"
                 id="genre"
                 name="genre"
+                value={this.state.genre}
+                onChange={this.handleChange}
                 required
               />
             </div>
@@ -141,6 +222,8 @@ class EditProfile extends Component {
                 className="profile-form-control"
                 id="website"
                 name="website"
+                value={this.state.website}
+                onChange={this.handleChange}
               />
             </div>
             <div className="profile-form-group">
@@ -153,6 +236,8 @@ class EditProfile extends Component {
                 className="profile-form-control"
                 id="city"
                 name="city"
+                value={this.state.city}
+                onChange={this.handleChange}
               />
             </div>
             <div className="profile-form-group">
@@ -166,6 +251,8 @@ class EditProfile extends Component {
                 className="profile-form-control"
                 id="state"
                 name="state"
+                value={this.state.state}
+                onChange={this.handleChange}
               />
             </div>
             <div className="profile-form-group">
@@ -178,6 +265,8 @@ class EditProfile extends Component {
                 className="form-control form-about-control"
                 id="about"
                 name="about"
+                value={this.state.about}
+                onChange={this.handleChange}
               />
             </div>
             <div className="profile-form-group">
@@ -190,15 +279,20 @@ class EditProfile extends Component {
                 className="form-control"
                 id="soundCloud"
                 name="soundCloud"
+                value={this.state.soundCloud}
+                onChange={this.handleChange}
               />
             </div>
             <div className="form-btns">
-              <button to="profile/" className="cancel-btn ">
+              <button
+                to={`/profile/${this.context.loggedInUser._id}`}
+                className="cancel-btn "
+              >
                 Cancel
               </button>
-              <Link to="profile/" className="submit-btn ">
+              <button type="submit" className="submit-btn ">
                 Submit
-              </Link>
+              </button>
             </div>
           </form>
         </section>

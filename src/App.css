@@ -11,3 +11,8 @@ main {
   background-color: #DEE5F3;
   min-height: 675px;
 }
+
+.thumbnail {
+  width: 50px;
+  margin: 7px;
+}

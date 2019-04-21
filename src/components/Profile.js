@@ -86,7 +86,7 @@ class Profile extends Component {
         <section className="profile-audio">
           <iframe
             width="100%"
-            height="200"
+            height="100"
             scrolling="no"
             frameborder="no"
             allow="autoplay"
