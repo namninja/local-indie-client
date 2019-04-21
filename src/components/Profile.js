@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Profile.css";
 import SearchResults from "./SearchResults";
 import UserContext from "../contexts/UserContext";
+
 const { API_BASE_URL } = require("../config");
 
 class Profile extends Component {
@@ -20,7 +21,7 @@ class Profile extends Component {
       soundCloud: ""
     };
   }
-  componentDidMount() {
+  componentWillMount() {
     const user = this.context.loggedInUser;
     const token = window.localStorage.getItem("Bearer");
     fetch(`${API_BASE_URL}/profile/${user._id}`, {
@@ -38,10 +39,12 @@ class Profile extends Component {
       .then(data => {
         this.setState(data);
       })
+
       .catch(err => {
         this.setState({ errors: err });
       });
   }
+
   render() {
     let alt = `Picture of ${this.state.profileName}`;
     let location = `${this.state.city}, ${this.state.state}`;
@@ -84,6 +87,9 @@ class Profile extends Component {
           <p className="about-content">{this.state.about}</p>
         </section>
         <section className="profile-audio">
+          <h3>
+            <span className="categories">Music Sample:</span>
+          </h3>
           <iframe
             width="100%"
             height="300"
@@ -94,7 +100,7 @@ class Profile extends Component {
           />
         </section>
         <section className="profile-events">
-          <SearchResults />
+          <SearchResults profileID={this.state.id} />
         </section>
       </div>
     );
