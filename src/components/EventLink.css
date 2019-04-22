@@ -10,16 +10,22 @@
 
 .event-thumbnail {
   order: 0;
-  height: 50px;
   width: 50px;
   margin: 0 10px;
 }
 
 .event {
-  margin: 10px;
+  margin: 10px 0;
 }
 
 .event-link-items {
   margin: 0 10px;
-  flex: 0 1 80px;
+  flex: 0 1 70px;
+  text-align: center;
+}
+
+.event-link:hover {
+  color: #288B58;
+  font-weight: bold;
+  text-decoration: underline;
 }

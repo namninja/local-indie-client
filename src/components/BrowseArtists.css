@@ -70,6 +70,10 @@
   margin-bottom: 1rem
 }
 
+.city-option, .state-select {
+  text-transform: capitalize;
+}
+
 .search-btn {
   background-image: linear-gradient(to bottom right, #288B58, #1522F1);
   border: none;
@@ -77,8 +81,9 @@
   font-size: 18px;
   font-family: 'Montserrat', sans-serif;
   color: #ffffff;
-  width: 150px;
+  width: 180px;
   height: 45px;
+  border-radius: .25rem;
 }
 
 .search-btn:hover {
@@ -120,7 +125,8 @@
     font-size: 18px;
     font-family: 'Montserrat', sans-serif;
     color: #ffffff;
-    width: 150px;
+    width: 180px;
     height: 45px;
+    border-radius: .25rem;
   }
 }

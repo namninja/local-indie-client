@@ -11,7 +11,7 @@ export default function Contact(props) {
           src={props.eventImg}
           alt={`photo of ${props.eventName}`}
         />
-        <Moment format="ddd, MMM DD YYYY">
+        <Moment className="event-link-items" format="ddd, MMM DD YYYY">
           <p className="event-link-items">{props.eventDate}</p>
         </Moment>
         <p className="event-link-items">{props.eventName}</p>
