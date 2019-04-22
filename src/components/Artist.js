@@ -1,12 +1,9 @@
 import React, { Component } from "react";
-import "./Profile.css";
+import "./Artist.css";
 import SearchResults from "./SearchResults";
-import UserContext from "../contexts/UserContext";
-
 const { API_BASE_URL } = require("../config");
 
-class Profile extends Component {
-  static contextType = UserContext;
+class Artist extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,17 +18,11 @@ class Profile extends Component {
       soundCloud: ""
     };
   }
+
   componentDidMount() {
-    const id = window.localStorage.getItem("id");
-    const token = window.localStorage.getItem("Bearer");
-    if (!id) {
-      return (window.location.href = "/");
-    }
-    fetch(`${API_BASE_URL}/profile/${id}`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
+    const { id } = this.props.match.params;
+    fetch(`${API_BASE_URL}/artist/${id}`, {
+      method: "GET"
     })
       .then(response => {
         if (response.ok) {
@@ -44,7 +35,7 @@ class Profile extends Component {
       })
 
       .catch(err => {
-        this.setState({ errors: err });
+        console.log(err);
       });
   }
 
@@ -110,4 +101,4 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+export default Artist;

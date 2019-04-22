@@ -2,7 +2,7 @@ import React from "react";
 import "./EventLink.css";
 import Moment from "react-moment";
 
-export default function Contact(props) {
+export default function EventLink(props) {
   return (
     <div id={props.id} className="event">
       <a href="#" className="event-link">

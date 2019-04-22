@@ -17,6 +17,7 @@ import Signup from "./components/Signup";
 import EditProfile from "./components/EditProfile";
 import PostEvent from "./components/PostEvent";
 import BrowseArtists from "./components/BrowseArtists";
+import Artist from "./components/Artist";
 import Event from "./components/Event";
 
 const { API_BASE_URL } = require("./config");
@@ -125,6 +126,7 @@ class App extends Component {
             <Route exact path="/" component={Landing} />
             <Route exact path="/find-event" component={FindEvent} />
             <Route exact path="/browse-artists" component={BrowseArtists} />
+            <Route exact path="/artist/:id" component={Artist} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/profile/:id" component={Profile} />

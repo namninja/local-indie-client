@@ -1,4 +1,4 @@
-.search-results {
+.artist-results {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -6,11 +6,12 @@
   margin-bottom: 5%;
 }
 
-.search-result-items {
+.artist-result-items {
   display: flex;
   flex-direction: column;
+  width: 85%;
 }
 
-.results-title {
+.artist-results-title {
   text-align: center;
 }

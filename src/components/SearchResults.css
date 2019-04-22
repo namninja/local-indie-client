@@ -9,6 +9,7 @@
 .search-result-items {
   display: flex;
   flex-direction: column;
+  width: 85%;
 }
 
 .results-title {

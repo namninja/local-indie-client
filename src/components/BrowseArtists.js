@@ -143,7 +143,9 @@ class BrowseArtists extends Component {
             </div>
           </section>
         </form>
-        <ArtistSearchResults artists={this.state.artists} />
+        <section className="artistSearchResults">
+          <ArtistSearchResults artists={this.state.artists} />
+        </section>
       </section>
     );
   }
