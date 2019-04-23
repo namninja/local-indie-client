@@ -92,11 +92,7 @@ class BrowseArtists extends Component {
         <div className="find-artists-title">
           <h1>Browse artists</h1>
         </div>
-        <form
-          role="search"
-          className="artists-search-form"
-          onSubmit={this.onSubmit}
-        >
+        <form role="search" className="artists-search-form">
           <section id="artists-search-state" className="artists-form-group">
             <label className="search-artists-label" for="search-states">
               Select a State

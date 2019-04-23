@@ -1,11 +1,12 @@
 import React from "react";
 import "./EventLink.css";
 import Moment from "react-moment";
+import { Link } from "react-router-dom";
 
 export default function EventLink(props) {
   return (
     <div id={props.id} className="event">
-      <a href="#" className="event-link">
+      <Link to={`/event/${props.id}`} className="event-link">
         <img
           className="event-thumbnail"
           src={props.eventImg}
@@ -24,7 +25,7 @@ export default function EventLink(props) {
         <p className="event-link-items">
           {props.eventStart}-{props.eventEnd}
         </p>
-      </a>
+      </Link>
     </div>
   );
 }

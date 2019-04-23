@@ -125,6 +125,7 @@ class App extends Component {
             />
             <Route exact path="/" component={Landing} />
             <Route exact path="/find-event" component={FindEvent} />
+            <Route exact path="/event/:id" component={Event} />
             <Route exact path="/browse-artists" component={BrowseArtists} />
             <Route exact path="/artist/:id" component={Artist} />
             <Route exact path="/login" component={Login} />
@@ -132,7 +133,6 @@ class App extends Component {
             <Route exact path="/profile/:id" component={Profile} />
             <Route exact path="/edit-profile/:id" component={EditProfile} />
             <Route exact path="/post-event/:id" component={PostEvent} />
-            <Route path="/event" component={Event} />
           </main>
         </Router>
       </UserContext.Provider>

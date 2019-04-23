@@ -70,6 +70,10 @@
   margin-bottom: 1rem
 }
 
+.city-option, .state-select {
+  text-transform: capitalize;
+}
+
 .search-btn {
   background-image: linear-gradient(to bottom right, #288B58, #1522F1);
   border: none;
@@ -87,6 +91,12 @@
 
 .search-btn:active {
   transform: translateY(3px);
+}
+
+.eventSearchResults {
+  height: auto;
+  margin: 5%;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
 }
 
 @media only screen and (min-width: 415px) {

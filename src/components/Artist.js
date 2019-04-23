@@ -8,6 +8,7 @@ class Artist extends Component {
     super(props);
     this.state = {
       id: "",
+      user: "",
       imgURL: "",
       profileName: "",
       genre: "",
@@ -94,7 +95,7 @@ class Artist extends Component {
           />
         </section>
         <section className="profile-events">
-          <SearchResults profileID={this.state.id} />
+          <SearchResults userID={this.props.match.params.id} />
         </section>
       </div>
     );

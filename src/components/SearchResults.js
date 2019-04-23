@@ -10,10 +10,9 @@ class SearchResults extends Component {
       events: []
     };
   }
-  componentWillMount() {
-    console.log("test");
-    console.log(this.props.profileID);
-    fetch(`${API_BASE_URL}/artist/events/${this.props.profileID}`, {
+  componentDidMount() {
+    console.log(this.state.events);
+    fetch(`${API_BASE_URL}/artist/events/${this.props.userID}`, {
       method: "GET"
     })
       .then(response => {
@@ -28,7 +27,7 @@ class SearchResults extends Component {
   }
 
   render() {
-    const events = [];
+    let events = [];
     if (this.state.events.length > 0) {
       events = this.state.events.map((event, index) => (
         <EventLink key={index} index={index} {...event} />

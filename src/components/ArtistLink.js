@@ -7,7 +7,7 @@ const { API_BASE_URL } = require("../config");
 export default function ArtistLink(props) {
   return (
     <div id={props.id} className="artist-link-container">
-      <Link to={`/artist/${props.id}`} className="artist-link">
+      <Link to={`/artist/${props.user}`} className="artist-link">
         <img
           className="artist-thumbnail"
           src={props.imgURL}

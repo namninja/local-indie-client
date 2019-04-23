@@ -65,6 +65,10 @@ class Login extends Component {
               <i className="fas fa-lock" /> Login
             </h2>
           </div>
+
+          <p class={`error-message errors-show-${errors.length > 0}`}>
+            {errors.length ? errors : ""}
+          </p>
           <form className="log-form" noValidate onSubmit={this.onSubmit}>
             <div className="form-group">
               <label htmlFor="log-email">Email</label>

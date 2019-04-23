@@ -103,7 +103,7 @@ class Profile extends Component {
           />
         </section>
         <section className="profile-events">
-          <SearchResults profileID={this.state.id} />
+          <SearchResults userID={this.props.match.params.id} />
         </section>
       </div>
     );
