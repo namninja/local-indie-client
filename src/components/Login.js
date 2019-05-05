@@ -66,7 +66,7 @@ class Login extends Component {
             </h2>
           </div>
 
-          <p class={`error-message errors-show-${errors.length > 0}`}>
+          <p className={`error-message errors-show-${errors.length > 0}`}>
             {errors.length ? errors : ""}
           </p>
           <form className="log-form" noValidate onSubmit={this.onSubmit}>
