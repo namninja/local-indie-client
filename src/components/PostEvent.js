@@ -171,7 +171,7 @@ class PostEvent extends Component {
             {this.state.uploaded ? (
               <img
                 className="thumbnail"
-                src={this.state.cloudinaryImg}
+                src={this.state.eventImg}
                 alt="uploaded thumbnail"
               />
             ) : null}
