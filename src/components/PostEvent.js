@@ -143,7 +143,11 @@ class PostEvent extends Component {
   };
   toast = notify.createShowQueue();
   render() {
-    if (this.state.redirect === true) {
+    if (
+      this.state.redirect === true &&
+      this.context &&
+      this.context.loggedInUser
+    ) {
       return <Redirect to={`/profile/${this.context.loggedInUser._id}`} />;
     }
     return (
@@ -330,12 +334,16 @@ class PostEvent extends Component {
               />
             </div>
             <div className="form-btns">
-              <Link
-                to={`/profile/${this.context.loggedInUser._id}`}
-                className="submit-btn "
-              >
-                Cancel
-              </Link>
+              {this.context && this.context.loggedInUser ? (
+                <Link
+                  to={`/profile/${this.context.loggedInUser._id}`}
+                  className="submit-btn "
+                >
+                  Cancel
+                </Link>
+              ) : (
+                ""
+              )}
               <button type="submit" className="cancel-btn ">
                 Submit
               </button>
