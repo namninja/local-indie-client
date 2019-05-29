@@ -2,10 +2,8 @@
   background-image: url("../images/icon.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   background-size: contain;
   margin-top: 5px;
-  height: 100vh;
   padding-top: 222px;
 }
 
