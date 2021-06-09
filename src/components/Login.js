@@ -94,7 +94,7 @@ class Login extends Component {
                 type="password"
                 className="form-control"
                 name="password"
-                placeholder="demo"
+                placeholder="demo123"
                 required
               />
             </div>
